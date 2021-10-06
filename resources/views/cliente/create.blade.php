@@ -4,4 +4,5 @@
 
 @section('content')
     <h1>En esta pagina podemos crear un cliente</h1>
+    <h1>En esta pagina podemos crear un cliente</h1>
 @endsection
