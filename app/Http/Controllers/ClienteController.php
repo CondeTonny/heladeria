@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 class ClienteController extends Controller
 {
     public function index(){
-        return view('cliente.index');
+        return view('clientes.index');
     }
     public function create(){
-        return view('cliente.create');
+        return view('clientes.create');
     }
     public function show($cliente){
-        return view('cliente.show',['cliente'=> $cliente]);
+        return view('clientes.show',['cliente'=> $cliente]);
     }
 }

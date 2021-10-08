@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
     public function index(){
-        return view('usuario.index');
+        return view('usuarios.index');
     }
     public function create(){
-        return view('usuario.create');
+        return view('usuarios.create');
     }
     public function show($usuario){
-        return view('usuario.show',['usuario'=> $usuario]);
+        return view('usuarios.show',['usuario'=> $usuario]);
     }
 }

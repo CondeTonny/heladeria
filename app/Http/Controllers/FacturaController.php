@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 class FacturaController extends Controller
 {
     public function index(){
-        return view('factura.index');
+        return view('facturas.index');
     }
     public function create(){
-        return view('factura.create');
+        return view('facturas.create');
     }
     public function show($factura){
-        return view('factura.show',['factura'=> $factura]);
+        return view('facturas.show',['factura'=> $factura]);
     }
 }
