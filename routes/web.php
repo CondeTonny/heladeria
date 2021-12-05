@@ -24,9 +24,12 @@ use App\Http\Controllers\FacturaController;
 Route::get('/', HomeController::class);
 
 //cliente
-Route::get('clientes', [ClienteController::class, 'index']);
-Route::get('clientes/create', [ClienteController::class, 'create']);
-Route::get('clientes/{cliente}', [ClienteController::class, 'show']);
+Route::get('clientes', [ClienteController::class, 'index'])->name('clientes.index');
+Route::get('clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
+Route::post('clientes', [ClienteController::class, 'store'])->name('clientes.store');
+Route::get('clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
+Route::get('clientes/{cliente}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+Route::put('clientes/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
 
 //usuario
 Route::get('usuarios', [UsuarioController::class, 'index']);
