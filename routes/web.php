@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProveedorController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\HeladosController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\FacturaController;
+use App\Models\Helado;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,50 +24,39 @@ use App\Http\Controllers\FacturaController;
 |
 */
 
-Route::get('/', HomeController::class);
+//Route::get('/', HomeController::class);
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){return view('dashboard');})->name('dashboard');
+
+//Route::resource('tiendas', TiendaController::class);
+//Route::get('tiendas/{producto}', [TiendaController::class, 'crearPedido'])->name('tiendas.crearPedido');
 
 //cliente
-Route::get('clientes', [ClienteController::class, 'index'])->name('clientes.index');
-Route::get('clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
-Route::post('clientes', [ClienteController::class, 'store'])->name('clientes.store');
-Route::get('clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
-Route::get('clientes/{cliente}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
-Route::put('clientes/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
+Route::resource('cliente',ClienteController::class);
 
 //usuario
-Route::get('usuarios', [UsuarioController::class, 'index']);
-Route::get('usuarios/create', [UsuarioController::class, 'create']);
-Route::get('usuarios/{usuario}', [UsuarioController::class, 'show']);
+Route::resource('usuario',UsuarioController::class);
 
 //proveedor
-Route::get('proveedores', [ProveedorController::class, 'index']);
-Route::get('proveedores/create', [ProveedorController::class, 'create']);
-Route::get('proveedores/{proveedor}', [ProveedorController::class, 'show']);
+Route::resource('proveedor',ProveedorController::class);
 
 //ingredientes
-Route::get('ingredientes', [IngredientesController::class, 'index']);
-Route::get('ingredientes/create', [IngredientesController::class, 'create']);
-Route::get('ingredientes/{ingredientes}', [IngredientesController::class, 'show']);
+Route::resource('ingrediente',IngredientesController::class);
 
 //helados
-Route::get('helados', [HeladosController::class, 'index']);
-Route::get('helados/create', [HeladosController::class, 'create']);
-Route::get('helados/{heleados}', [HeladosController::class, 'show']);
+Route::resource('helado',HeladosController::class);
 
 //compra
-Route::get('compras', [CompraController::class, 'index']);
-Route::get('compras/create', [CompraController::class, 'create']);
-Route::get('compras/{compra}', [CompraController::class, 'show']);
+Route::resource('compra',CompraController::class);
 
 //venta
-Route::get('ventas', [VentaController::class, 'index']);
-Route::get('ventas/create', [VentaController::class, 'create']);
-Route::get('ventas/{venta}', [VentaController::class, 'show']);
+Route::resource('venta',VentaController::class);
 
 //factura
-Route::get('facturas', [FacturaController::class, 'index']);
-Route::get('facturas/create', [FacturaController::class, 'create']);
-Route::get('facturas/{factura}', [FacturaController::class, 'show']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::resource('factura',FacturaController::class);
+
+
+

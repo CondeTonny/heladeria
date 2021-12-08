@@ -22,7 +22,7 @@ class CreateFacturasTable extends Migration
             $table->integer('descripcion');
             $table->double('total');
             $table->foreign('idusuario')->references('idusuario')->on('usuarios');
-            $table->foreign('idcliente')->references('idcliente')->on('clientes');
+            $table->foreign('idcliente')->references('id')->on('clientes');
             $table->foreign('idventa')->references('idventa')->on('ventas');
             $table->timestamps();
         });

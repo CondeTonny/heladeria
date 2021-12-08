@@ -15,14 +15,31 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('clientes.create') }}" :active="request()->routeIs('clientes.create')">
-                        {{ __('cliente') }}
+                    <x-jet-nav-link href="{{ route('cliente.index') }}" :active="request()->routeIs('cliente.*')">
+                        Cliente
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('usuario.index') }}" :active="request()->routeIs('usuario.*')">
+                        Usuario
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('proveedor.index') }}" :active="request()->routeIs('proveedor.*')">
+                        Proveedor
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('ingrediente.index') }}" :active="request()->routeIs('ingrediente.*')">
+                        Ingrediente
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('helado.index') }}" :active="request()->routeIs('helado.*')">
+                        Helado
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('compra.index') }}" :active="request()->routeIs('compra.*')">
+                        Compra
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('venta.index') }}" :active="request()->routeIs('venta.*')">
+                        Venta
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('factura.index') }}" :active="request()->routeIs('factura.*')">
+                        Factura
                     </x-jet-nav-link>
                 </div>
-
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

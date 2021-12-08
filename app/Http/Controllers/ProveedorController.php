@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 class ProveedorController extends Controller
 {
     public function index(){
-        return view('proveedores.index');
+        return view('proveedor.index');
     }
     public function create(){
-        return view('proveedores.create');
+        return view('proveedor.create');
     }
     public function show($proveedor){
-        return view('proveedores.show',['proveedor'=> $proveedor]);
+        return view('proveedor.show',['proveedor'=> $proveedor]);
     }
 }

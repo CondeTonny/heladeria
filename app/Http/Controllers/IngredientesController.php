@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 class IngredientesController extends Controller
 {
     public function index(){
-        return view('ingredientes.index');
+        return view('ingrediente.index');
     }
     public function create(){
-        return view('ingredientes.create');
+        return view('ingrediente.create');
     }
     public function show($ingredientes){
-        return view('ingredientes.show',['ingredientes'=> $ingredientes]);
+        return view('ingrediente.show',['ingrediente'=> $ingredientes]);
     }
 }
